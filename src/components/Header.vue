@@ -25,7 +25,7 @@ export default {
   },
 
   created () {
-    window.addEventListener('resize', this.detectMobile)
+    process.browser && window.addEventListener('resize', this.detectMobile)
   },
 
   methods: {
