@@ -15,5 +15,7 @@ export default {
 <template>
   <Layout>
     <Slide1 />
+    <Slide1 />
+    <Slide1 />
   </Layout>
 </template>

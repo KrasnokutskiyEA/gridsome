@@ -8,7 +8,9 @@
     "lint": "npx eslint --ext .js,.vue ."
   },
   "dependencies": {
+    "body-scroll-lock": "^3.1.5",
     "gridsome": "^0.7.0",
+    "lodash.debounce": "^4.0.8",
     "typeface-amatic-sc": "0.0.72"
   },
   "devDependencies": {
