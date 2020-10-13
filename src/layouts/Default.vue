@@ -30,5 +30,15 @@ body {
   margin:0;
   padding:0;
   line-height: 1.5;
+  overflow-y: scroll; /* Add the ability to scroll with hidden scrollbar */
+
+   /* Hide scrollbar */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+    display: none;
 }
 </style>
