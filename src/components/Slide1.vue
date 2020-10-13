@@ -1,12 +1,12 @@
 <script>
-import Button from '../components/Button'
+// import Button from '../components/Button'
 
 export default {
   name: 'Slide1',
 
-  components: {
-    Button
-  },
+  // components: {
+  //   Button
+  // },
 
   metaInfo: {
     title: 'Hello, world!'
@@ -15,23 +15,17 @@ export default {
 </script>
 
 <template>
-  <div class='h-screen'>
-    <!-- Learn how to use images here: https://gridsome.org/docs/images -->
-    <g-image alt='Example image' src='~/favicon.png' width='135' />
-
-    <h1 class='text-red-700 font-body text-4xl'>Hello, world!</h1>
-
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur excepturi labore tempore expedita, et iste tenetur suscipit explicabo! Dolores, aperiam non officia eos quod asperiores
-    </p>
-
-    <div class='home-links my-6 flex justify-center'>
+  <div class='h-screen flex items-center justify-center flex-col border border-gray-600'>
+    <div class='inline'>
+      <h1 class='text-red-700 font-body text-4xl inline'>Hello, world!</h1>
       <!--
+      Learn how to use images here: https://gridsome.org/docs/images
       <a href='https://gridsome.org/docs/' target='_blank' rel='noopener'>Gridsome Docs</a>
       <a href='https://github.com/gridsome/gridsome' target='_blank' rel='noopener'>GitHub</a>
-      -->
       <Button label='button blue' success />
       <Button label='button red' error />
+      <g-image alt='Example image' src='~/favicon.png' width='135' />
+      -->
     </div>
   </div>
 </template>
