@@ -1,16 +1,45 @@
 <script>
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Header from '../components/Header'
 
 export default {
   components: {
     Header
+  },
+
+  data () {
+    return {
+      isInvertedColor: false
+    }
+  },
+
+  created () {
+    gsap.registerPlugin(ScrollTrigger)
+  },
+
+  mounted () {
+    this.startAnimation()
+  },
+
+  methods: {
+    startAnimation () {
+      ScrollTrigger.create({
+        trigger: this.$refs.layout,
+        start: 'top top', // 'element scrubber'
+        end: '79px 78px', // 'element scrubber'
+        onEnter: () => this.$set(this, 'isInvertedColor', true),
+        onEnterBack: () => this.$set(this, 'isInvertedColor', false),
+        // markers: true
+      })
+    }
   }
 }
 </script>
 
 <template>
-  <div class='layout'>
-    <Header />
+  <div ref='layout' class='layout'>
+    <Header :is-inverted-color='isInvertedColor' />
 
     <slot />
   </div>

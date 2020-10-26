@@ -1,6 +1,4 @@
 <script>
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 import MenuButton from './MenuButton'
 // import debounce from 'lodash.debounce'
@@ -12,11 +10,14 @@ export default {
     MenuButton
   },
 
+  props: {
+    isInvertedColor: { type: Boolean, required: true }
+  },
+
   data () {
     return {
-      isOpenedMenu: true,
-      isMobileView: false,
-      isInvertedColor: false
+      isOpenedMenu: false,
+      isMobileView: false
     }
   },
 
@@ -34,17 +35,16 @@ export default {
   },
 
   created () {
-    gsap.registerPlugin(ScrollTrigger)
     process.browser && window.addEventListener('resize', this.detectMobile)
+  },
+
+  beforeMount () {
+    this.detectMobile()
+    this.openMenu()
   },
 
   beforeDestroy () {
     clearAllBodyScrollLocks()
-  },
-
-  mounted () {
-    this.detectMobile()
-    this.startAnimation()
   },
 
   methods: {
@@ -57,15 +57,9 @@ export default {
       this.isOpenedMenu = !this.isOpenedMenu
     },
 
-    startAnimation () {
-      ScrollTrigger.create({
-        trigger: this.$refs.headerContent,
-        start: 'top top', // 'element scrubber'
-        end: 'bottom 78px', // 'element scrubber'
-        onEnter: () => this.$set(this, 'isInvertedColor', true),
-        onEnterBack: () => this.$set(this, 'isInvertedColor', false)
-        // markers: true
-      })
+    openMenu () {
+      !this.isMobileView
+        ? this.$set(this, 'isOpenedMenu', true) : this.$set(this, 'isOpenedMenu', false)
     }
   }
 }
