@@ -58,6 +58,7 @@ export default {
     },
 
     openMenu () {
+      console.log('-----openMenu ismobileView=', this.isMobileView)
       !this.isMobileView
         ? this.$set(this, 'isOpenedMenu', true) : this.$set(this, 'isOpenedMenu', false)
     }
