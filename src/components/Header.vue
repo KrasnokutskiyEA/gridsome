@@ -29,7 +29,6 @@ export default {
     },
 
     isOpenedMenu (newValue, oldValue) {
-      console.log('-----WATCHER val=', newValue)
       newValue && this.isMobileView
         ? disableBodyScroll(this.$refs.menuList) : enableBodyScroll(this.$refs.menuList)
     }
@@ -44,17 +43,12 @@ export default {
     this.openMenu()
   },
 
-  mounted () {
-    console.log('----mounted isOpenedMenu=', this.isOpenedMenu)
-  },
-
   beforeDestroy () {
     clearAllBodyScrollLocks()
   },
 
   methods: {
     detectMobile () {
-      console.log('detectMobile----isOpenedMenu=', this.isOpenedMenu)
       window.innerWidth >= 768
         ? this.$set(this, 'isMobileView', false) : this.$set(this, 'isMobileView', true)
     },
@@ -64,7 +58,6 @@ export default {
     },
 
     openMenu () {
-      console.log('-----openMenu ismobileView=', this.isMobileView)
       !this.isMobileView
         ? this.$set(this, 'isOpenedMenu', true) : this.$set(this, 'isOpenedMenu', false)
     }
@@ -74,7 +67,7 @@ export default {
 
 <template>
   <header ref='header' class='text-gray-700 body-font'>
-    <!-- logo tailblocks -->
+    <!-- logo -->
     <div ref='headerContent' :class='[isInvertedColor ? "bg-red-600 text-white" : "bg-green-300", "fixed flex flex-wrap px-10 py-5 flex-row items-center w-screen transition-colors duration-500 ease-in-out"]'>
       <a class='flex title-font font-medium items-center'>
         <svg
