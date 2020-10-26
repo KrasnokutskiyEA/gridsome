@@ -54,6 +54,7 @@ export default {
 
   methods: {
     detectMobile () {
+      console.log('----isOpenedMenu=', this.isOpenedMenu)
       window.innerWidth >= 768
         ? this.$set(this, 'isMobileView', false) : this.$set(this, 'isMobileView', true)
     },
