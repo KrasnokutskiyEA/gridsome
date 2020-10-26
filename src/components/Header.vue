@@ -67,7 +67,7 @@ export default {
 
 <template>
   <header ref='header' class='text-gray-700 body-font'>
-    <!-- logo -->
+    <!-- logo tailblocks -->
     <div ref='headerContent' :class='[isInvertedColor ? "bg-red-600 text-white" : "bg-green-300", "fixed flex flex-wrap px-10 py-5 flex-row items-center w-screen transition-colors duration-500 ease-in-out"]'>
       <a class='flex title-font font-medium items-center'>
         <svg
