@@ -37,10 +37,10 @@ export default {
 
   created () {
     process.browser && window.addEventListener('resize', this.detectMobile)
+    this.detectMobile()
   },
 
   beforeMount () {
-    this.detectMobile()
     this.openMenu()
   },
 
@@ -54,7 +54,7 @@ export default {
 
   methods: {
     detectMobile () {
-      console.log('----isOpenedMenu=', this.isOpenedMenu)
+      console.log('detectMobile----isOpenedMenu=', this.isOpenedMenu)
       window.innerWidth >= 768
         ? this.$set(this, 'isMobileView', false) : this.$set(this, 'isMobileView', true)
     },
@@ -97,7 +97,7 @@ export default {
 
     <!-- menu list -->
     <transition name='fade'>
-      <div v-show='isOpenedMenu' ref='menuList' :class='[isInvertedColor ? "bg-red-600 text-white" : "bg-green-300", "flex fixed w-screen h-screen right-0 md:mr-10 md:mt-6 md:w-auto md:h-8 transition-colors duration-500 ease-in-out"]'>
+      <div v-show='isOpenedMenu || !isMobileView' ref='menuList' :class='[isInvertedColor ? "bg-red-600 text-white" : "bg-green-300", "flex fixed w-screen h-screen right-0 md:mr-10 md:mt-6 md:w-auto md:h-8 transition-colors duration-500 ease-in-out"]'>
         <nav class='flex flex-wrap flex-col text-3xl pl-10 mt-4 md:pl-0 md:mt-0 md:text-base md:w-auto md:h-auto md:flex-row md:ml-auto md:items-center md:justify-center'>
           <g-link class='mb-2 md:mr-5 md:mb-0 nav__link hover:text-gray-900' to='/'>Home</g-link>
           <a class='mb-2 md:mr-5 md:mb-0 hover:text-gray-900'>Second Link</a>
