@@ -29,6 +29,7 @@ export default {
     },
 
     isOpenedMenu (newValue, oldValue) {
+      console.log('-----WATCHER val=', newValue)
       newValue && this.isMobileView
         ? disableBodyScroll(this.$refs.menuList) : enableBodyScroll(this.$refs.menuList)
     }
@@ -41,6 +42,10 @@ export default {
   beforeMount () {
     this.detectMobile()
     this.openMenu()
+  },
+
+  mounted () {
+    console.log('----mounted isOpenedMenu=', this.isOpenedMenu)
   },
 
   beforeDestroy () {
