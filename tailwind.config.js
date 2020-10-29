@@ -10,6 +10,9 @@ module.exports = {
     extend: {
       fontFamily: {
         body: ['Amatic SC']
+      },
+      colors: {
+        'royal-red': '#ad0000'
       }
     }
   },

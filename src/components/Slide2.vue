@@ -2,7 +2,7 @@
 // import Button from '../components/Button'
 
 export default {
-  name: 'Slide1',
+  name: 'Slide2',
 
   // components: {
   //   Button
@@ -15,7 +15,7 @@ export default {
 </script>
 
 <template>
-  <div class='h-screen flex items-center justify-center flex-col border border-gray-600 bg-hero'>
+  <div class='h-screen flex items-center justify-center flex-col border border-gray-600'>
     <div class='inline'>
       <h1 class='text-red-700 font-body text-4xl inline'>Hello, world!</h1>
       <!--
@@ -29,10 +29,3 @@ export default {
     </div>
   </div>
 </template>
-
-<style>
-.bg-hero {
-  background-image: url("~@/assets/bkg.webp");
-  background-size: cover;
-}
-</style>
