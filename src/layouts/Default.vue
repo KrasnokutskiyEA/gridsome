@@ -26,10 +26,11 @@ export default {
     startAnimation () {
       ScrollTrigger.create({
         trigger: this.$refs.layout,
-        start: 'top top', // 'element scrubber'
-        end: '79px 78px', // 'element scrubber'
-        onEnter: () => this.$set(this, 'isInvertedColor', true),
-        onEnterBack: () => this.$set(this, 'isInvertedColor', false),
+        start: 'top 7px', // 'element scrubber'
+        end: '80px 7px', // 'element scrubber'
+        onLeave: () => this.$set(this, 'isInvertedColor', true),
+        onEnterBack: () => this.$set(this, 'isInvertedColor', false)
+        // onLeave: () => console.log('------LEFT ARAEA'),
         // markers: true
       })
     }

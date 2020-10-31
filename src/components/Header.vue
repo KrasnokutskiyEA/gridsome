@@ -70,10 +70,10 @@ export default {
 <template>
   <header ref='header' class='text-white body-font'>
     <!-- logo -->
-    <div ref='headerContent' :class='[isInvertedColor ? "bg-royal-red" : "bg-transparent", "fixed flex flex-wrap px-10 py-5 flex-row items-center w-screen transition-colors duration-500 ease-in-out"]'>
+    <div :class='[{"bg-opacity-0": !isInvertedColor}, "bg-royal-red fixed flex flex-wrap px-10 py-5 h-20 flex-row items-center w-screen transition-colors duration-500 ease-in-out"]'>
       <a class='flex title-font font-medium items-center'>
-        <Corona class='w-10 h-10 fill-current rounded-full' />
-        <span class='ml-3 text-xl'>Jewlery</span>
+        <Corona class='fixed w-10 h-10 fill-current rounded-full' />
+        <div class='fixed ml-12 text-xl'>Jewlery</div>
       </a>
     </div>
     <!-- -->

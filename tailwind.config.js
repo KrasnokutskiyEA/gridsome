@@ -13,7 +13,10 @@ module.exports = {
       },
       colors: {
         'royal-red': '#ad0000'
-      }
+      },
+      fill: theme => ({
+        white: theme('colors.white')
+      })
     }
   },
   variants: {},
