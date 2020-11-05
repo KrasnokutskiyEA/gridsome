@@ -15,7 +15,11 @@ export default {
 </script>
 
 <template>
-  <button :class='["menu", { "opened": isOpenedMenu }]' @click='toggleBtn'>
+  <button
+    :class='["menu", { "opened": isOpenedMenu }]'
+    aria-label='menu'
+    @click='toggleBtn'
+  >
     <svg
       width='50'
       height='50'

@@ -21,7 +21,7 @@ export default {
     <picture class='object-cover w-full h-full'>
       <source srcset='~@/assets/bkg.webp' type='image/webp'>
       <source srcset='~@/assets/bkg.jpg' type='image/jpeg'>
-      <img src='~@/assets/bkg.jpg' class='object-cover w-full h-full'>
+      <img src='~@/assets/bkg.jpg' class='object-cover w-full h-full' alt='bkg'>
     </picture>
 
     <!--

@@ -23,6 +23,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "eslint-plugin-vue": "^7.0.0",
     "gridsome-plugin-tailwindcss": "^3.0.1",
-    "vue-svg-loader": "^0.16.0"
+    "vue-svg-loader": "^0.16.0",
+    "webpack-bundle-analyzer": "^3.9.0"
   }
 }
