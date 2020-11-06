@@ -18,11 +18,21 @@ export default {
   <div class='h-screen flex items-center justify-center flex-col border border-gray-600'>
     <!-- <img src='~@/assets/bkg.jpg' class='object-cover w-full h-full'> -->
 
+    <!--
     <picture class='object-cover w-full h-full'>
       <source srcset='~@/assets/bkg.webp' type='image/webp'>
       <source srcset='~@/assets/bkg.jpg' type='image/jpeg'>
       <img src='~@/assets/bkg.jpg' class='object-cover w-full h-full' alt='bkg'>
     </picture>
+    -->
+    <!-- <picture class='object-cover w-full h-full'> -->
+    <g-image
+      src='~/assets/bkg.jpg'
+      :immediate='true'
+      class='object-cover w-full h-full'
+      quality='50'
+    />
+    <!-- </picture> -->
 
     <!--
     <div class='inline'>

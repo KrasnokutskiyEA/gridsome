@@ -5,6 +5,7 @@ import 'typeface-amatic-sc'
 import DefaultLayout from '~/layouts/Default.vue'
 
 export default function (Vue, { router, head, isClient }) {
+  // 1 - preloading font
   head.link.push({
     rel: 'preload',
     href: './assets/fonts/amatic-sc-latin-400.woff2',
@@ -12,6 +13,7 @@ export default function (Vue, { router, head, isClient }) {
     type: 'font/woff2',
     crossorigin: 'anonymous'
   })
+
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
 }
