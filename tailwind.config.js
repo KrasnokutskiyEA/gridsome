@@ -13,10 +13,13 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Amatic SC']
+        // body: ['Amatic SC'],
+        playfair: ['Playfair Display SC']
+        // jacues: ['Jacques Francois Shadow']
       },
       colors: {
-        'royal-red': '#ad0000'
+        'royal-yellow': '#ab965d',
+        'royal-sand': '#faffd0'
       },
       fill: theme => ({
         white: theme('colors.white')

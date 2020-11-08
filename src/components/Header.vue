@@ -2,7 +2,6 @@
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 import MenuButton from './MenuButton'
 import Corona from '~/assets/corona.svg'
-// import debounce from 'lodash.debounce'
 
 export default {
   name: 'Header',
@@ -13,13 +12,13 @@ export default {
   },
 
   props: {
-    isInvertedColor: { type: Boolean, required: true }
+    isInvertedColor: { type: Boolean, required: true },
+    isMobileView: { type: Boolean, required: true }
   },
 
   data () {
     return {
-      isOpenedMenu: false,
-      isMobileView: false
+      isOpenedMenu: false
     }
   },
 
@@ -36,11 +35,6 @@ export default {
     }
   },
 
-  created () {
-    process.browser && window.addEventListener('resize', this.detectMobile)
-    process.browser && this.detectMobile()
-  },
-
   beforeMount () {
     this.openMenu()
   },
@@ -50,11 +44,6 @@ export default {
   },
 
   methods: {
-    detectMobile () {
-      window.innerWidth >= 768
-        ? this.$set(this, 'isMobileView', false) : this.$set(this, 'isMobileView', true)
-    },
-
     toggleMenuButton () {
       this.isOpenedMenu = !this.isOpenedMenu
     },
@@ -68,24 +57,24 @@ export default {
 </script>
 
 <template>
-  <header ref='header' class='text-white body-font'>
+  <header ref='header' class='text-royal-sand body-font'>
     <!-- logo -->
-    <div :class='[{"bg-opacity-0": !isInvertedColor}, "bg-royal-red fixed flex flex-wrap px-10 py-5 h-20 flex-row items-center w-screen transition-colors duration-500 ease-in-out"]'>
+    <div :class='[isInvertedColor ? "bg-opacity-75" : "bg-opacity-25", "bg-royal-yellow fixed flex flex-wrap px-10 py-5 h-20 flex-row items-center w-screen transition-colors duration-1000 ease-in-out z-10"]'>
       <a class='flex title-font font-medium items-center'>
         <Corona class='fixed w-10 h-10 fill-current rounded-full' />
-        <div class='fixed ml-12 text-xl'>Jewlery</div>
+        <div class='fixed ml-12 text-3xl font-playfair font-bold'>Jewelry</div>
       </a>
     </div>
     <!-- -->
 
     <!-- menu list -->
     <transition name='fade'>
-      <div v-show='isOpenedMenu || !isMobileView' ref='menuList' :class='[isInvertedColor || isMobileView ? "bg-royal-red" : "bg-transparent", "flex fixed w-screen h-screen right-0 md:mr-10 md:mt-6 md:w-auto md:h-8 transition-colors duration-500 ease-in-out"]'>
-        <nav class='flex flex-wrap flex-col text-3xl pl-10 mt-4 md:pl-0 md:mt-0 md:text-base md:w-auto md:h-auto md:flex-row md:ml-auto md:items-center md:justify-center'>
-          <g-link class='mb-2 md:mr-5 md:mb-0 nav__link hover:text-gray-900' to='/'>Home</g-link>
-          <a class='mb-2 md:mr-5 md:mb-0 hover:text-gray-900'>Second Link</a>
-          <a class='mb-2 md:mr-5 md:mb-0 hover:text-gray-900'>Third Link</a>
-          <g-link class='nav__link hover:text-gray-900' to='/about/'>About</g-link>
+      <div v-show='isOpenedMenu || !isMobileView' ref='menuList' :class='[{"bg-royal-yellow": isMobileView}, "flex fixed w-screen h-screen right-0 md:mr-10 md:mt-6 md:w-auto md:h-8 transition-colors duration-1000 ease-in-out z-10"]'>
+        <nav class='flex flex-wrap flex-col text-3xl pl-10 mt-4 md:pl-0 md:mt-0 md:text-lg md:w-auto md:h-auto md:flex-row md:ml-auto md:items-center md:justify-center'>
+          <g-link class='font-bold font-playfair mb-2 md:mr-5 md:mb-0 nav__link hover:text-gray-900' to='/'>Home</g-link>
+          <a class='font-bold font-playfair mb-2 md:mr-5 md:mb-0 hover:text-gray-900'>Second Link</a>
+          <a class='font-bold font-playfair mb-2 md:mr-5 md:mb-0 hover:text-gray-900'>Third Link</a>
+          <g-link class='font-bold font-playfair nav__link hover:text-gray-900' to='/about/'>About</g-link>
         </nav>
       </div>
     </transition>
@@ -94,7 +83,7 @@ export default {
     <!-- menu button burger -->
     <MenuButton
       :is-opened-menu='isOpenedMenu'
-      class='fixed mt-4 mr-8 top-0 right-0 md:hidden'
+      class='fixed mt-4 mr-8 top-0 right-0 md:hidden z-10'
       @toggle-menu-button='toggleMenuButton'
     />
     <!-- -->

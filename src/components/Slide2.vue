@@ -17,7 +17,7 @@ export default {
 <template>
   <div class='h-screen flex items-center justify-center flex-col border border-gray-600'>
     <div class='inline'>
-      <h1 class='text-red-700 font-body text-4xl inline'>Hello, world!</h1>
+      <h1 class='text-red-700 font-playfair text-4xl inline'>Hello, world!</h1>
       <!--
       Learn how to use images here: https://gridsome.org/docs/images
       <a href='https://gridsome.org/docs/' target='_blank' rel='noopener'>Gridsome Docs</a>

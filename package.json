@@ -12,7 +12,7 @@
     "gridsome": "^0.7.0",
     "gsap": "^3.5.1",
     "lodash.debounce": "^4.0.8",
-    "typeface-amatic-sc": "0.0.72"
+    "typeface-playfair-display-sc": "^1.1.13"
   },
   "devDependencies": {
     "eslint": "^7.10.0",

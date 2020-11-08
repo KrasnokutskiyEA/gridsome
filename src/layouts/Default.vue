@@ -10,12 +10,14 @@ export default {
 
   data () {
     return {
-      isInvertedColor: false
+      isInvertedColor: false,
+      isMobileView: window.innerWidth <= 768
     }
   },
 
   created () {
     gsap.registerPlugin(ScrollTrigger)
+    process.browser && window.addEventListener('resize', this.detectMobile)
   },
 
   mounted () {
@@ -33,6 +35,11 @@ export default {
         // onLeave: () => console.log('------LEFT ARAEA'),
         // markers: true
       })
+    },
+
+    detectMobile () {
+      window.innerWidth >= 768
+        ? this.$set(this, 'isMobileView', false) : this.$set(this, 'isMobileView', true)
     }
   }
 }
@@ -40,7 +47,7 @@ export default {
 
 <template>
   <div ref='layout' class='layout'>
-    <Header :is-inverted-color='isInvertedColor' />
+    <Header :is-inverted-color='isInvertedColor' :is-mobile-view='isMobileView' />
 
     <slot />
   </div>
