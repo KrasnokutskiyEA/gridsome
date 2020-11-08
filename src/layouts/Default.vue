@@ -11,7 +11,7 @@ export default {
   data () {
     return {
       isInvertedColor: false,
-      isMobileView: window.innerWidth <= 768
+      isMobileView: process.browser && window.innerWidth <= 768
     }
   },
 
